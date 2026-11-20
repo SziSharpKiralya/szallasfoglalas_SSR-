@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,37 @@
     </title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <h1><%= title %></h1>
-    Hello EJS!
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Foglalások jelenlegi darabszáma: <%= count %>
+    </p>
+    <form method="POST">
+        <label for="name">Név:</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email"><br>
+        <label for="startDate">Dátum:</label>
+        <input type="datetime-local" name="startDate" id="startDate"><br>
+        <label for="guests">Vendégek:</label>
+        <input type="number" name="guests" id="guests" min="0" max="10"><br>
+        <input type="submit" value="Beküldés">
+    </form>
+    <% if(error) { %>
+        <p>
+            <b style="color: crimson; background-color: azure; padding: 5px; border-radius: 5px">
+                <%= error %>
+            </b>
+        </p>
+    <% } else { %>
+        <p>
+            <b style="color:lawngreen; background-color: azure; padding: 5px; border-radius: 5px">
+                Az űrlap beküldése sikeres!
+            </b>
+        </p>
+    <% } %>
 </body>
+
 </html>
